@@ -1,0 +1,19 @@
+{
+  "name": "node-eventemitter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nauma/node-eventemitter.git"
+  },
+  "author": "Roman Naumenko-Vahnitsky",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/nauma/node-eventemitter/issues"
+  },
+  "homepage": "https://github.com/nauma/node-eventemitter#readme"
+}
