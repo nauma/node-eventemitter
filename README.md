@@ -18,7 +18,7 @@ const ee = require('@nauma/eventemitter')
 
 ### create EventEmitter
 ```js
-let rest = new ee.EventEmitter('rest')
+let rest = new ee.EventEmitter()
 ```
 
 #### add events
@@ -63,14 +63,14 @@ app
 app.get('rest')
 	.on('todo')
 	.then(response => {
-		console.log('in ->, response.data)
+		console.log('in ->', response.data)
 		response.reply({ lol: 'aruuuu' })
 	})
 
 app.get('rest')
 	.emit('todo', { kek: 'lol' })
 	.then(data => {
-		console.log('reply ->, data)
+		console.log('reply ->', data)
 	})
 
 ```
