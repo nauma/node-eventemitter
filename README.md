@@ -1,4 +1,4 @@
-# node-eventemitter
+# @nauma/eventemitter
 
 Using EventEmitter on node.js
 Size: 1.27 Kb
