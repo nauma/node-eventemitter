@@ -7,13 +7,13 @@ Size: 1.27 Kb
 # install
 
 ```js
-npm i @nauma/node-eventemitter --save
+npm i @nauma/eventemitter --save
 ```
 
 # using
 ### require
 ```js
-const ee = require('@nauma/node-eventemitter')
+const ee = require('@nauma/eventemitter')
 ```
 
 ### create EventEmitter
