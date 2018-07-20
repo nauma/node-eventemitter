@@ -29,6 +29,11 @@ rest.on('todo')
     })
 ```
 
+#### remove events
+```js
+rest.removeEventListener('todo')
+```
+
 #### emit data
 ```js
 rest.emit('todo', { data: 'test-data' })

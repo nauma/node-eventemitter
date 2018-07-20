@@ -22,6 +22,13 @@ class EventEmitter {
 		})
 		return promise
 	}
+
+	removeEventListener (name) {
+		this.events.map((event, i) => {
+			if (event.name === name) this.events.splice(i, 1)
+		})
+		return this
+	}
 }
 
 module.exports = EventEmitter
