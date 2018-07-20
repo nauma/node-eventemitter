@@ -1,5 +1,3 @@
-# @nauma/eventemitter
-
 Using EventEmitter on node.js
 Size: 1.27 Kb
 `0` dependencies
@@ -23,10 +21,9 @@ let rest = new ee.EventEmitter()
 
 #### add events
 ```js
-rest.on('todo')
-    .then(response => {
-        console.log('in ->', response.data)
-    })
+rest.on('todo', response => {
+	console.log('in ->', response.data)
+})
 ```
 
 #### remove events
@@ -41,16 +38,15 @@ rest.emit('todo', { data: 'test-data' })
 
 #### reply system
 ```js
-rest.on('todo')
-    .then(response => {
-        console.log('in ->', response.data)
-        response.reply({ text: 'hello world' })
-    })
+rest.on('todo', response => {
+	console.log('in ->', response.data)
+	response.reply({ text: 'hello world' })
+})
 
 rest.emit('todo', { data: 'test-data' })
-    .then(data => {
-        console.log('reply ->', data)
-    })
+  .then(data => {
+    console.log('reply ->', data)
+  })
 ```
 
 ### EventEmitters group
@@ -61,13 +57,12 @@ const rest = new ee.EventEmitter('rest')
 const database = new ee.EventEmitter('database')
 
 app
-    .add(rest)
-    .add(database)
-    // .add([rest, database])
+  .add(rest)
+  .add(database)
+  // .add([rest, database])
 
 app.get('rest')
-	.on('todo')
-	.then(response => {
+	.on('todo', response => {
 		console.log('in ->', response.data)
 		response.reply({ lol: 'aruuuu' })
 	})
@@ -77,7 +72,6 @@ app.get('rest')
 	.then(data => {
 		console.log('reply ->', data)
 	})
-
 ```
 
 

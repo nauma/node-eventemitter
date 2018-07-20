@@ -4,10 +4,9 @@ class EventEmitter {
 		this.events = []
 	}
 
-	on (name) {
-		return new Promise(resolve => {
-			this.events.push({ name, resolve })
-		})
+	on (name, callback) {
+		this.events.push({ name, callback })
+		return this
 	}
 
 	emit (name, data) {
@@ -16,7 +15,7 @@ class EventEmitter {
 		this.events.map(event => {
 			if (name === event.name) {
 				promise = new Promise(resolve => {
-					event.resolve({ data, reply: (data) => resolve(data) })
+					event.callback({ data, reply: (data) => resolve(data) })
 				})
 			}
 		})

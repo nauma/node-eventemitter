@@ -11,8 +11,7 @@ app
 	// .add([rest, database])
 
 app.get('rest')
-	.on('kek')
-	.then(response => {
+	.on('kek', response => {
 		console.log('in →', response.data)
 		response.reply({ lol: 'aruuuu' })
 	})
