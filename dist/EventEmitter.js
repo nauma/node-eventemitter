@@ -10,12 +10,12 @@ class EventEmitter {
 	}
 
 	emit (name, data) {
-		let promise = new Promise(resolve => {})
+		let promise = new Promise((resolve, reject) => {})
 
 		this.events.map(event => {
 			if (name === event.name) {
-				promise = new Promise(resolve => {
-					event.callback({ data, reply: (data) => resolve(data) })
+				promise = new Promise((resolve, reject) => {
+					event.callback({ data, reply: (data) => resolve(data), replyErr: (data) => reject(data) })
 				})
 			}
 		})
