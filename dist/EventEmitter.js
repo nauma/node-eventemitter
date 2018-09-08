@@ -10,6 +10,7 @@ class EventEmitter {
 	}
 
 	emit (name, data) {
+		data = data || {}
 		let promise = new Promise((resolve, reject) => {})
 
 		this.events.map(event => {
