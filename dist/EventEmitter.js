@@ -13,20 +13,24 @@ class EventEmitter {
 		data = data || {}
 		let promise = new Promise((resolve, reject) => {})
 
-		this.events.map(event => {
-			if (name === event.name) {
-				promise = new Promise((resolve, reject) => {
-					event.callback({ data, reply: (data) => resolve(data), replyErr: (data) => reject(data) })
-				})
-			}
-		})
+		for (let i = this.events.length-1; i >= 0; i--) {
+		    let event = this.events[i]
+
+            if (name === event.name) {
+                promise = new Promise((resolve, reject) => {
+                    event.callback({ data, reply: (data) => resolve(data), replyErr: (data) => reject(data) })
+                })
+            }
+        }
 		return promise
 	}
 
 	removeEventListener (name) {
-		this.events.map((event, i) => {
-			if (event.name === name) this.events.splice(i, 1)
-		})
+	    for (let i = this.events.length-1; i >= 0; i--) {
+	        let event = this.events[i]
+            if (event.name === name) this.events.splice(i, 1)
+        }
+        
 		return this
 	}
 }
